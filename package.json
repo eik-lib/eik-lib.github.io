@@ -24,7 +24,7 @@
     "@eik/eslint-config": "1.0.13",
     "@eik/prettier-config": "1.0.1",
     "eslint": "9.23.0",
-    "eslint-plugin-react": "7.37.4",
+    "eslint-plugin-react": "7.37.5",
     "prettier": "3.4.2",
     "rimraf": "6.0.1"
   },
