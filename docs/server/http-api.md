@@ -418,12 +418,13 @@ An alias is a shorthand between a major version of a package / import map and th
 
 ### Endpoint Summary Table
 
-| Name                                  | Verb   | Endpoint                       | Form Fields |
-| ------------------------------------- | ------ | ------------------------------ | ----------- |
-| [Public Alias URL](#public-alias-url) | GET    | `/:type/:name/v:alias/:extras` |             |
-| [Create Alias](#create-alias)         | PUT    | `/:type/:name/v:alias`         | `version`   |
-| [Update Alias](#update-alias)         | POST   | `/:type/:name/v:alias`         | `version`   |
-| [Delete Alias](#delete-alias)         | DELETE | `/:type/:name/v:alias`         |             |
+| Name                                                                                | Verb   | Endpoint                       | Form Fields |
+| ----------------------------------------------------------------------------------- | ------ | ------------------------------ | ----------- |
+| [Public Alias URL](#public-alias-url)                                               | GET    | `/:type/:name/v:alias/:extras` |             |
+| [Public stale-while-revalidate alias URL](#public-stale-while-revalidate-alias-url) | GET    | `/:type/:name/~:alias/:extras` |             |
+| [Create Alias](#create-alias)                                                       | PUT    | `/:type/:name/v:alias`         | `version`   |
+| [Update Alias](#update-alias)                                                       | POST   | `/:type/:name/v:alias`         | `version`   |
+| [Delete Alias](#delete-alias)                                                       | DELETE | `/:type/:name/v:alias`         |             |
 
 ### Public Alias URL
 
@@ -452,6 +453,37 @@ Example:
 ```bash
 curl -X GET -L http://localhost:4001/pkg/fuzz/v8/main/index.js
 curl -X GET -L http://localhost:4001/map/buzz/v4
+```
+
+### Public stale-while-revalidate Alias URL
+
+**Method:** `GET`
+
+Available since [`@eik/service@5.1.0`](https://github.com/eik-lib/service/releases/tag/v5.1.0).
+
+Retrieves files from a package and serves them without a redirect, using [`stale-while-revalidate`](http://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cache-Control#stale-while-revalidate).
+
+```bash
+https://:assetServerUrl:port/:type/:name/~:alias/:extras
+```
+
+URL parameters:
+
+- `:type` is the type to retrieve from. Validator: `pkg`, `npm` or `img`.
+- `:name` is the name of the package. Validator: Comply with [npm package names](https://github.com/npm/validate-npm-package-name).
+- `:alias` is the major version of the package, prefixed by tilde (`~`).
+- `:extras` whildcard pathname to any file in a package.
+
+Status codes:
+
+- `200` if aliased file exist
+- `302` if alias exists and `:extras` was not specified (same behavior as [Public Alias URL](#public-alias-url))
+- `404` if alias is not found
+
+Example:
+
+```bash
+curl -X GET -L http://localhost:4001/pkg/fuzz/~8/main/index.js
 ```
 
 ### Create Alias
