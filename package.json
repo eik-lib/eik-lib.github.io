@@ -12,9 +12,9 @@
     "start": "docusaurus serve --no-open"
   },
   "dependencies": {
-    "@docusaurus/core": "3.9.1",
-    "@docusaurus/plugin-client-redirects": "3.9.1",
-    "@docusaurus/preset-classic": "3.9.1",
+    "@docusaurus/core": "3.9.2",
+    "@docusaurus/plugin-client-redirects": "3.9.2",
+    "@docusaurus/preset-classic": "3.9.2",
     "classnames": "2.5.1",
     "docusaurus-lunr-search": "3.6.0",
     "react": "19.2.0",
