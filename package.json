@@ -12,21 +12,21 @@
     "start": "docusaurus serve --no-open"
   },
   "dependencies": {
-    "@docusaurus/core": "3.9.1",
-    "@docusaurus/plugin-client-redirects": "3.9.1",
-    "@docusaurus/preset-classic": "3.9.1",
+    "@docusaurus/core": "3.9.2",
+    "@docusaurus/plugin-client-redirects": "3.9.2",
+    "@docusaurus/preset-classic": "3.9.2",
     "classnames": "2.5.1",
     "docusaurus-lunr-search": "3.6.0",
-    "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react": "19.2.3",
+    "react-dom": "19.2.3"
   },
   "devDependencies": {
     "@eik/eslint-config": "1.0.23",
     "@eik/prettier-config": "1.0.1",
-    "eslint": "9.36.0",
+    "eslint": "9.39.1",
     "eslint-plugin-react": "7.37.5",
-    "prettier": "3.4.2",
-    "rimraf": "6.0.1"
+    "prettier": "3.7.4",
+    "rimraf": "6.1.2"
   },
   "browserslist": {
     "production": [
