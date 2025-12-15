@@ -87,6 +87,6 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git diff --quiet || (git commit --all --message "chore: update version number in eik-image.json [skip ci]" && git push origin HEAD)
+          git diff HEAD..origin/HEAD --quiet || (git commit --all --message "chore: update version number in eik-image.json [skip ci]" && git push origin HEAD)
         shell: bash
 ```
