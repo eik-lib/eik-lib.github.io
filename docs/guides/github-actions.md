@@ -114,10 +114,11 @@ jobs:
 
       - name: Commit updated eik.json if version changed
         # git diff --quiet will exit with code 0 if there are no changes.
-        # if there _are_ changes (a new version), the right-hand side of || will run
+        # if there _are_ changes (a new version), the right-hand side of || will run.
+        # Compare with origin/HEAD since eik version creates a commit.
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git diff --quiet || (git commit --all --message "chore: update version number in eik.json [skip ci]" && git push origin HEAD)
+          git diff HEAD..origin/HEAD --quiet || (git commit --all --message "chore: update version number in eik.json [skip ci]" && git push origin HEAD)
         shell: bash
 ```
