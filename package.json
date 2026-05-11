@@ -17,8 +17,8 @@
     "@docusaurus/preset-classic": "3.10.1",
     "classnames": "2.5.1",
     "docusaurus-lunr-search": "3.6.0",
-    "react": "19.2.5",
-    "react-dom": "19.2.5"
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
   },
   "devDependencies": {
     "@eik/eslint-config": "1.0.25",
