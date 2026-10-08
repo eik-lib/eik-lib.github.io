@@ -224,6 +224,34 @@ Compares local files with files on server and increments the `"version"` field i
 eik version [level]
 ```
 
+## Available options
+
+These are options available for all commands.
+
+### --config
+
+Path to a Eik configuration file.
+
+```sh
+eik publish --config <path to config file>
+```
+
+### --cwd
+
+Path to a different working directory than the current.
+
+```sh
+eik publish --cwd <path to directory>
+```
+
+### --debug
+
+Show additional logging for commands.
+
+```sh
+eik version --debug
+```
+
 ## Programatic usage
 
 If you need to script commands from the Eik CLI, consider importing `@eik/cli` in JavaScript.
